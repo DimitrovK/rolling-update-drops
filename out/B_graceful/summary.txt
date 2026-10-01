@@ -1,0 +1,2 @@
+requests=19392 ok=19367 failed=25
+      25  status=0 RemoteDisconnected

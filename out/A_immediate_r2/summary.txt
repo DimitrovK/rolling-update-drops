@@ -1,0 +1,4 @@
+requests=18966 ok=18931 failed=35
+      22  status=0 RemoteDisconnected
+       7  status=0 ConnectionResetError
+       6  status=0 ConnectionRefusedError

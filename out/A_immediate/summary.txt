@@ -1,0 +1,5 @@
+requests=19302 ok=19251 failed=51
+      33  status=0 RemoteDisconnected
+      13  status=0 ConnectionRefusedError
+       4  status=0 ConnectionResetError
+       1  status=0 IncompleteRead
