@@ -1,0 +1,22 @@
+name: dropcheck
+region: fra
+services:
+- name: web
+  git:
+    repo_clone_url: https://github.com/DimitrovK/rolling-update-drops.git
+    branch: master
+  source_dir: app-platform
+  dockerfile_path: app-platform/Dockerfile
+  http_port: 8080
+  instance_count: 1
+  instance_size_slug: apps-s-1vcpu-0.5gb
+  health_check:
+    http_path: /healthz
+  termination:
+    drain_seconds: 60
+    grace_period_seconds: 90
+  envs:
+  - key: SHUTDOWN_MODE
+    value: immediate
+  - key: GEN
+    value: "1"

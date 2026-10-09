@@ -1,0 +1,4 @@
+requests=63101 ok=63100 failed=1
+       1  status=502 <html>
+<head><title>502 Bad G
+   answered by: {'7': 13113, '8': 49987}

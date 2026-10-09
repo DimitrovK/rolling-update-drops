@@ -1,0 +1,2 @@
+requests=66981 ok=66981 failed=0
+   answered by: {'5': 17394, '6': 49587}
