@@ -7,7 +7,12 @@ def log(m): print(f"{time.time():.3f} {HOST} {m}", flush=True)
 class H(http.server.BaseHTTPRequestHandler):
     protocol_version = "HTTP/1.1"          # keep-alive, like a real client
     def do_GET(self):
-        if self.path == "/healthz":
+        if self.path.startswith("/slow"):
+            # in-flight probe: hold the request open, then report which version finished it
+            secs = float(self.path.split("s=")[-1]) if "s=" in self.path else 20.0
+            started = time.time(); time.sleep(secs)
+            body = f"{HOST} gen={GEN} slept={time.time()-started:.1f}".encode(); code = 200
+        elif self.path == "/healthz":
             body = b"draining" if draining.is_set() else b"ok"
             code = 503 if draining.is_set() else 200
         else:
